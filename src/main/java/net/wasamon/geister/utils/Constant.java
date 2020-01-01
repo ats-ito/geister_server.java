@@ -2,9 +2,9 @@ package net.wasamon.geister.utils;
 
 public class Constant {
 
-    public static final int PLAYER_1st_PORT = 10000;
+    public static int PLAYER_1st_PORT = 10000;
 	
-    public static final int PLAYER_2nd_PORT = 10001;
+    public static int PLAYER_2nd_PORT = 10001;
     
     public static final int MAX_TURN_COUNT = 300; // to draw
     
