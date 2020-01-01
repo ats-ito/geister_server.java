@@ -86,7 +86,7 @@ public class GameServer {
     private PrintWriter getLogFile(){
         if(logWriter != null)
             return logWriter;
-        String path = "log-" + sdf.format(Calendar.getInstance().getTime()) + ".txt";
+        String path = Constant.LOG_LABEL + "-" + sdf.format(Calendar.getInstance().getTime()) + ".txt";
         try{
             log = new FileOutputStream(new File(logDir, path));
             logWriter = new PrintWriter(log, true);
