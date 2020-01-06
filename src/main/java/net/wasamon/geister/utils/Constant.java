@@ -16,4 +16,6 @@ public class Constant {
     
     public static final int ESCAPED_MARK = 8;
 
+    public static String LOG_LABEL = "log";
+
 }
