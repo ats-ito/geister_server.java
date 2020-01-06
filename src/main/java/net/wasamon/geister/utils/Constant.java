@@ -18,4 +18,6 @@ public class Constant {
 
     public static String LOG_LABEL = "log";
 
+    public static int WS_PORT = 8080;
+
 }

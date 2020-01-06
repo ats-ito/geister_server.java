@@ -20,7 +20,7 @@ import net.wasamon.mjlib.util.GetOpt;
 public class TCPServerWithBlock {
 
 	private final GameServer server;
-	Server webSocketServer = new Server("localhost", 8080, "/ws", null, UIWebSocketServer.class);
+	Server webSocketServer = new Server("localhost", Constant.WS_PORT, "/ws", null, UIWebSocketServer.class);
 
 	private ServerThread[] players = new ServerThread[2];
 	
@@ -352,7 +352,7 @@ public class TCPServerWithBlock {
 
 	public static void main(String[] args) throws Exception {
 		System.out.println("TCPSrverWithBlock");
-		GetOpt opt = new GetOpt("", "no_ng_terminate,timeout:,budget:,wait:,max-turn:,port1:,port2:,log_label:", args);
+		GetOpt opt = new GetOpt("", "no_ng_terminate,timeout:,budget:,wait:,max-turn:,port1:,port2:,ws_port:,log_label:", args);
 		boolean ng_terminate = !opt.flag("no_ng_terminate");
 		int budget = 10*60; // 10min.
 		if(opt.flag("port1")){
@@ -360,6 +360,9 @@ public class TCPServerWithBlock {
 		}
 		if(opt.flag("port2")){
 			Constant.PLAYER_2nd_PORT = Integer.parseInt(opt.getValue("port2"));
+		}
+		if(opt.flag("ws_port")){
+			Constant.WS_PORT = Integer.parseInt(opt.getValue("ws_port"));
 		}
 		if(opt.flag("log_label")){
 			Constant.LOG_LABEL = opt.getValue("log_label");
