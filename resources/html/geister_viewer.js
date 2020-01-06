@@ -55,11 +55,15 @@
     class GameOfGeister {
       constructor() {
         var hostname;
-        hostname = window.location.hostname;
+        hostname = document.getElementById('hostname').value;
+        if (hostname === "") {
+          hostname = window.location.hostname;
+        }
         if (hostname === "") {
           hostname = "localhost";
         }
-        this.ws = new WebSocket('ws://' + hostname + ':8080/ws/geister');
+        var port = parseInt(document.getElementById('port').value);
+        this.ws = new WebSocket('ws://' + hostname + ':' + port + '/ws/geister');
         this.createCanvas();
         this.resizeCanvas();
         this.createDrawingContext();
@@ -70,6 +74,21 @@
         };
         this.turnPlayer = 1;
         this.prevMesg = "";
+      }
+
+      connect(){
+        var hostname;
+        hostname = document.getElementById('hostname').value;
+        if (hostname === "") {
+          hostname = "localhost";
+        }
+        var port = parseInt(document.getElementById('port').value);
+        this.ws.close()
+        this.ws = new WebSocket('ws://' + hostname + ':' + port + '/ws/geister');
+        this.ws.geister = this;
+        this.ws.onmessage = function(e) {
+          return this.geister.update_info(e);
+        };
       }
 
       str2color(s) {
