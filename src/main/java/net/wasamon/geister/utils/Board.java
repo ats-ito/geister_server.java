@@ -184,10 +184,10 @@ public class Board {
 					ss = item.getName();
 					if(Constant.COLORED){
 						if(item.getColor() == ItemColor.BLUE){
-							ss = "\u001b[00;34m" + ss + " \u001b[00m";
+							ss = "\u001b[00;34m" + ss + "\u001b[00m";
 						}
 						else if(item.getColor() == ItemColor.RED){
-							ss = "\u001b[00;31m" + ss + " \u001b[00m";
+							ss = "\u001b[00;31m" + ss + "\u001b[00m";
 						}
 					}
 					if (item.getPlayer() == getPlayer(opposite)) { // opposite
