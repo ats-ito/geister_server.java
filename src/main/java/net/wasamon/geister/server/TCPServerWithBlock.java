@@ -352,7 +352,7 @@ public class TCPServerWithBlock {
 
 	public static void main(String[] args) throws Exception {
 		System.out.println("TCPSrverWithBlock");
-		GetOpt opt = new GetOpt("", "no_ng_terminate,timeout:,budget:,wait:,max-turn:,port1:,port2:,ws_port:,log_label:", args);
+		GetOpt opt = new GetOpt("", "no_ng_terminate,timeout:,budget:,wait:,max-turn:,port1:,port2:,ws_port:,log_label:,colored:", args);
 		boolean ng_terminate = !opt.flag("no_ng_terminate");
 		int budget = 10*60; // 10min.
 		if(opt.flag("port1")){
@@ -366,6 +366,9 @@ public class TCPServerWithBlock {
 		}
 		if(opt.flag("log_label")){
 			Constant.LOG_LABEL = opt.getValue("log_label");
+		}
+		if(opt.flag("colored")){
+			Constant.COLORED = Boolean.valueOf(opt.getValue("colored"));
 		}
 		if(opt.flag("budget")){
 			budget = Integer.parseInt(opt.getValue("budget"));
