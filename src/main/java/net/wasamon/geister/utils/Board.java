@@ -1,5 +1,7 @@
 package net.wasamon.geister.utils;
 
+import net.wasamon.geister.utils.Constant;
+
 public class Board {
 
 	private final Player[] players;
@@ -180,6 +182,14 @@ public class Board {
 				String ss = " ";
 				if (item != null) {
 					ss = item.getName();
+					if(Constant.COLORED){
+						if(item.getColor() == ItemColor.BLUE){
+							ss = "\u001b[00;34m" + ss + " \u001b[00m";
+						}
+						else if(item.getColor() == ItemColor.RED){
+							ss = "\u001b[00;31m" + ss + " \u001b[00m";
+						}
+					}
 					if (item.getPlayer() == getPlayer(opposite)) { // opposite
 																	// one
 						ss = ss.toLowerCase();

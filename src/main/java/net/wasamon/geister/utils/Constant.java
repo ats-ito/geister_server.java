@@ -20,4 +20,6 @@ public class Constant {
 
     public static int WS_PORT = 8080;
 
+    public static boolean COLORED = true;
+
 }
